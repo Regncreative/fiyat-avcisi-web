@@ -14,6 +14,25 @@ export const translations = {
       faq: 'FAQ',
       github: 'GitHub',
       cta: 'Live Demo',
+      info: 'About',
+    },
+    infoModal: {
+      title: 'About Fiyat Avcısı',
+      intro:
+        'This site is the marketing / portfolio landing. The login panel lives in a separate open-source monorepo on GitHub.',
+      stepsTitle: 'How to try it',
+      steps: [
+        'Open the Live Demo at app.fiyatavcisi.com to explore the tracking panel.',
+        'Browse tracked products, price history charts, and alert-style status on the demo data.',
+        'Clone the monorepo if you want to run backend + frontend locally with your own Postgres and Redis.',
+        'Read the README for env setup, migrations, and the crawler / queue stack.',
+      ],
+      noteTitle: 'Open source',
+      note:
+        'Fiyat Avcısı is MIT licensed. You can review the code, fork it, or use the patterns for your own experiments.',
+      source: 'Source code',
+      demo: 'Live demo',
+      close: 'Close',
     },
     hero: {
       brand: 'Fiyat Avcısı',
@@ -130,6 +149,25 @@ export const translations = {
       faq: 'SSS',
       github: 'GitHub',
       cta: 'Canlı Demo',
+      info: 'Hakkında',
+    },
+    infoModal: {
+      title: 'Fiyat Avcısı hakkında',
+      intro:
+        'Bu site pazarlama / portföy landing’i. Login’li panel GitHub’daki ayrı açık kaynak monorepoda.',
+      stepsTitle: 'Nasıl denersiniz',
+      steps: [
+        'Takip panelini görmek için app.fiyatavcisi.com üzerindeki Canlı Demo’yu açın.',
+        'Demo verisinde ürünleri, fiyat geçmişi grafiklerini ve uyarı durumlarını inceleyin.',
+        'Backend + frontend’i yerelde çalıştırmak isterseniz monorepoyu klonlayın (Postgres + Redis gerekir).',
+        'Env kurulumu, migration ve crawler / kuyruk yığını için README’yi okuyun.',
+      ],
+      noteTitle: 'Açık kaynak',
+      note:
+        'Fiyat Avcısı MIT lisanslıdır. Kodu inceleyebilir, fork edebilir veya desenleri kendi denemelerinize uyarlayabilirsiniz.',
+      source: 'Kaynak kod',
+      demo: 'Canlı demo',
+      close: 'Kapat',
     },
     hero: {
       brand: 'Fiyat Avcısı',

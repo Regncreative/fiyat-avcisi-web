@@ -1,72 +1,89 @@
+import { useState } from 'react'
 import { useLocale } from '../i18n/LocaleContext'
 import { config } from '../config'
+import { InfoModal } from './InfoModal'
 
 export function Navbar() {
   const { t, locale, setLocale } = useLocale()
+  const [infoOpen, setInfoOpen] = useState(false)
 
   return (
-    <header className="nav">
-      <div className="nav__inner">
-        <a className="nav__brand" href="#top" aria-label="Fiyat Avcısı">
-          <img
-            src="/logos/fiyatavcisi_logo_sembol.svg"
-            alt=""
-            width={28}
-            height={28}
-          />
-          <span>Fiyat Avcısı</span>
-        </a>
+    <>
+      <header className="nav">
+        <div className="nav__inner">
+          <a className="nav__brand" href="#top" aria-label="Fiyat Avcısı">
+            <img
+              src="/logos/fiyatavcisi_logo_sembol.svg"
+              alt=""
+              width={28}
+              height={28}
+            />
+            <span>Fiyat Avcısı</span>
+          </a>
 
-        <nav className="nav__links" aria-label="Primary">
-          <a href="#demo">{t.nav.demo}</a>
-          <a href="#features">{t.nav.features}</a>
-          <a href="#why">{t.nav.why}</a>
-          <a href="#faq">{t.nav.faq}</a>
-        </nav>
+          <nav className="nav__links" aria-label="Primary">
+            <a href="#demo">{t.nav.demo}</a>
+            <a href="#features">{t.nav.features}</a>
+            <a href="#why">{t.nav.why}</a>
+            <a href="#faq">{t.nav.faq}</a>
+          </nav>
 
-        <div className="nav__actions">
-          <div className="lang-toggle" role="group" aria-label="Language">
+          <div className="nav__actions">
+            <div className="lang-toggle" role="group" aria-label="Language">
+              <button
+                type="button"
+                className={locale === 'en' ? 'is-active' : undefined}
+                onClick={() => setLocale('en')}
+                aria-pressed={locale === 'en'}
+              >
+                <FlagUK />
+                EN
+              </button>
+              <button
+                type="button"
+                className={locale === 'tr' ? 'is-active' : undefined}
+                onClick={() => setLocale('tr')}
+                aria-pressed={locale === 'tr'}
+              >
+                <FlagTR />
+                TR
+              </button>
+            </div>
+
             <button
               type="button"
-              className={locale === 'en' ? 'is-active' : undefined}
-              onClick={() => setLocale('en')}
-              aria-pressed={locale === 'en'}
+              className="nav__info"
+              onClick={() => setInfoOpen(true)}
+              aria-label={t.nav.info}
+              title={t.nav.info}
             >
-              <FlagUK />
-              EN
+              i
             </button>
-            <button
-              type="button"
-              className={locale === 'tr' ? 'is-active' : undefined}
-              onClick={() => setLocale('tr')}
-              aria-pressed={locale === 'tr'}
+
+            <a
+              className="nav__github"
+              href={config.githubUrl}
+              target="_blank"
+              rel="noreferrer"
             >
-              <FlagTR />
-              TR
-            </button>
+              <GitHubIcon />
+              {t.nav.github}
+            </a>
+
+            <a
+              className="btn btn--primary btn--sm"
+              href={config.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.nav.cta}
+            </a>
           </div>
-
-          <a
-            className="nav__github"
-            href={config.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <GitHubIcon />
-            {t.nav.github}
-          </a>
-
-          <a
-            className="btn btn--primary btn--sm"
-            href={config.demoUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t.nav.cta}
-          </a>
         </div>
-      </div>
-    </header>
+      </header>
+
+      <InfoModal open={infoOpen} onClose={() => setInfoOpen(false)} />
+    </>
   )
 }
 
