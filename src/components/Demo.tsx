@@ -1,5 +1,6 @@
 import { useLocale } from '../i18n/LocaleContext'
 import { config } from '../config'
+import { DemoPreview } from './DemoPreview'
 
 export function Demo() {
   const { t } = useLocale()
@@ -11,43 +12,29 @@ export function Demo() {
         <p>{t.demo.subtitle}</p>
       </div>
 
-      <div className="demo-frame">
+      <a
+        className="demo-frame demo-frame--link"
+        href={config.demoUrl}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={t.demo.demoCta}
+      >
         <div className="demo-frame__chrome" aria-hidden>
           <span />
           <span />
           <span />
-        </div>
-        <div className="demo-frame__body">
-          <img
-            src="/logos/fiyatavcisi_logo_sembol.svg"
-            alt=""
-            width={56}
-            height={56}
-          />
-          <p>
-            <span className="demo-frame__dot" aria-hidden />
-            {t.demo.placeholder}
-          </p>
-          <div className="demo-frame__ctas">
-            <a
-              className="btn btn--primary btn--sm"
-              href={config.demoUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t.demo.demoCta}
-            </a>
-            <a
-              className="btn btn--ghost btn--sm"
-              href={config.githubUrl}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t.demo.githubCta}
-            </a>
+          <div className="demo-frame__url">
+            <span className="demo-frame__lock" />
+            app.fiyatavcisi.com
           </div>
         </div>
-      </div>
+        <div className="demo-frame__stage">
+          <DemoPreview />
+          <div className="demo-frame__hover">
+            <span className="btn btn--primary btn--sm">{t.demo.demoCta}</span>
+          </div>
+        </div>
+      </a>
     </section>
   )
 }

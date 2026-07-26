@@ -32,11 +32,8 @@ export const translations = {
     },
     demo: {
       title: 'See it live',
-      subtitle:
-        'The live demo panel is up. Open it, or clone the monorepo to run everything locally.',
-      placeholder: 'Live demo is ready',
+      subtitle: 'A quick look at the tracking panel — open the live demo to try it yourself.',
       demoCta: 'Open live demo',
-      githubCta: 'Open the monorepo',
     },
     features: {
       title: 'What it does',
@@ -149,11 +146,8 @@ export const translations = {
     },
     demo: {
       title: 'Canlı gör',
-      subtitle:
-        'Canlı demo paneli yayında. Hemen açın ya da her şeyi yerelde çalıştırmak için monorepoyu klonlayın.',
-      placeholder: 'Canlı demo hazır',
+      subtitle: 'Takip panelinin kısa bir önizlemesi — denemek için canlı demoyu açın.',
       demoCta: 'Canlı demoyu aç',
-      githubCta: 'Monorepoyu aç',
     },
     features: {
       title: 'Ne yapar',
