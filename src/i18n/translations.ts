@@ -19,17 +19,31 @@ export const translations = {
     infoModal: {
       title: 'About Fiyat Avcısı',
       intro:
-        'This site is the marketing / portfolio landing. The login panel lives in a separate open-source monorepo on GitHub.',
-      stepsTitle: 'How to try it',
-      steps: [
-        'Open the Live Demo at app.fiyatavcisi.com to explore the tracking panel.',
-        'Browse tracked products, price history charts, and alert-style status on the demo data.',
-        'Clone the monorepo if you want to run backend + frontend locally with your own Postgres and Redis.',
-        'Read the README for env setup, migrations, and the crawler / queue stack.',
+        'This site (fiyatavcisi.com) is the static marketing landing. The product itself is an npm workspaces monorepo: React (Vite) frontend + Express API, workers, and a multi-strategy crawler.',
+      stackTitle: 'Architecture & stack',
+      stack: [
+        'Frontend: React 18, TypeScript, Vite — dashboard, product detail, compare, alerts, auth UI (light/dark).',
+        'Backend: Node.js 20+, Express API with JWT refresh auth and optional Google OAuth.',
+        'Data: PostgreSQL for users, products, price history, alerts; Redis + BullMQ for background jobs.',
+        'Jobs: scheduled product scans, alert evaluation, and email delivery run as queue workers — not in the request path.',
       ],
-      noteTitle: 'Open source',
+      crawlerTitle: 'Crawler pipeline',
+      crawler: [
+        'URL-based tracking: paste a product link; name, price, and image are extracted automatically.',
+        'Multi-strategy scrape order: JSON-LD → meta tags → readability → marketplace adapters → Puppeteer → LLM fallback.',
+        'Adapters cover Trendyol, Hepsiburada, Amazon, N11, GittiGidiyor; scan frequency is per product.',
+        'Alerts: target price and percent-drop rules; in-app + email notifications when thresholds hit.',
+      ],
+      stepsTitle: 'Try it / run locally',
+      steps: [
+        'Live Demo (app.fiyatavcisi.com): frontend-only showcase — seed products, charts, and status with no login; add-by-URL is disabled (no crawler).',
+        'Full stack: clone Regncreative/fiyat-avcisi, copy backend/frontend .env examples, start Postgres + Redis.',
+        'Run migrations, then npm run dev — frontend ~:3000, API ~:4000.',
+        'See the monorepo README for env keys (JWT, SMTP, OAuth, optional OpenAI) and workspace scripts.',
+      ],
+      noteTitle: 'License',
       note:
-        'Fiyat Avcısı is MIT licensed. You can review the code, fork it, or use the patterns for your own experiments.',
+        'MIT licensed open source. Review the code, fork it, or reuse the queue/crawler patterns. Secrets belong only in local .env — never commit them.',
       source: 'Source code',
       demo: 'Live demo',
       close: 'Close',
@@ -154,17 +168,31 @@ export const translations = {
     infoModal: {
       title: 'Fiyat Avcısı hakkında',
       intro:
-        'Bu site pazarlama / portföy landing’i. Login’li panel GitHub’daki ayrı açık kaynak monorepoda.',
-      stepsTitle: 'Nasıl denersiniz',
-      steps: [
-        'Takip panelini görmek için app.fiyatavcisi.com üzerindeki Canlı Demo’yu açın.',
-        'Demo verisinde ürünleri, fiyat geçmişi grafiklerini ve uyarı durumlarını inceleyin.',
-        'Backend + frontend’i yerelde çalıştırmak isterseniz monorepoyu klonlayın (Postgres + Redis gerekir).',
-        'Env kurulumu, migration ve crawler / kuyruk yığını için README’yi okuyun.',
+        'Bu site (fiyatavcisi.com) statik pazarlama landing’i. Ürünün kendisi npm workspaces monorepo: React (Vite) frontend + Express API, worker’lar ve çok stratejili crawler.',
+      stackTitle: 'Mimari ve yığın',
+      stack: [
+        'Frontend: React 18, TypeScript, Vite — dashboard, ürün detayı, karşılaştırma, uyarılar, auth UI (açık/koyu tema).',
+        'Backend: Node.js 20+, Express API; JWT refresh auth ve isteğe bağlı Google OAuth.',
+        'Veri: PostgreSQL (kullanıcı, ürün, fiyat geçmişi, uyarılar); Redis + BullMQ arka plan işleri için.',
+        'İşler: zamanlanmış ürün taraması, uyarı değerlendirme ve e-posta kuyruk worker’larında çalışır — request path’te değil.',
       ],
-      noteTitle: 'Açık kaynak',
+      crawlerTitle: 'Crawler pipeline',
+      crawler: [
+        'URL tabanlı takip: ürün linkini yapıştırın; ad, fiyat ve görsel otomatik çıkarılır.',
+        'Çok stratejili sıra: JSON-LD → meta etiketleri → readability → pazaryeri adapter’ları → Puppeteer → LLM fallback.',
+        'Adapter’lar: Trendyol, Hepsiburada, Amazon, N11, GittiGidiyor; tarama sıklığı ürüne göre ayarlanır.',
+        'Uyarılar: hedef fiyat ve yüzde düşüş kuralları; eşik aşılınca uygulama içi + e-posta bildirimi.',
+      ],
+      stepsTitle: 'Deneyin / yerelde çalıştırın',
+      steps: [
+        'Canlı Demo (app.fiyatavcisi.com): yalnızca frontend vitrin — seed ürünler, grafikler, durum; login yok; URL ile ürün ekleme kapalı (crawler yok).',
+        'Tam yığın: Regncreative/fiyat-avcisi’yi klonlayın, backend/frontend .env örneklerini doldurun, Postgres + Redis başlatın.',
+        'Migration çalıştırıp npm run dev — frontend ~:3000, API ~:4000.',
+        'Env anahtarları (JWT, SMTP, OAuth, isteğe bağlı OpenAI) ve workspace script’leri için monorepo README’ye bakın.',
+      ],
+      noteTitle: 'Lisans',
       note:
-        'Fiyat Avcısı MIT lisanslıdır. Kodu inceleyebilir, fork edebilir veya desenleri kendi denemelerinize uyarlayabilirsiniz.',
+        'MIT lisanslı açık kaynak. Kodu inceleyin, fork edin veya kuyruk/crawler desenlerini yeniden kullanın. Gizli anahtarlar yalnızca yerel .env’de — asla commit etmeyin.',
       source: 'Kaynak kod',
       demo: 'Canlı demo',
       close: 'Kapat',

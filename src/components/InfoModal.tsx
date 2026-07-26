@@ -62,6 +62,20 @@ export function InfoModal({ open, onClose }: InfoModalProps) {
         <div className="modal__body">
           <p>{t.infoModal.intro}</p>
 
+          <h3>{t.infoModal.stackTitle}</h3>
+          <ul>
+            {t.infoModal.stack.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
+          <h3>{t.infoModal.crawlerTitle}</h3>
+          <ul>
+            {t.infoModal.crawler.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
           <h3>{t.infoModal.stepsTitle}</h3>
           <ol>
             {t.infoModal.steps.map((step) => (
