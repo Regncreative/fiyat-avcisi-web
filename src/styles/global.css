@@ -251,6 +251,14 @@ p {
   color: #e5e7eb;
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
   animation: modalIn 0.22s ease;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.modal::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .modal__head {
