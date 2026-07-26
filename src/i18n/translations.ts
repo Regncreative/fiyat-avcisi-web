@@ -34,6 +34,8 @@ export const translations = {
       title: 'See it live',
       subtitle: 'A quick look at the tracking panel — open the live demo to try it yourself.',
       demoCta: 'Open live demo',
+      detailsTitle: 'Product detail',
+      detailsSubtitle: 'Price history, alerts, and product status at a glance.',
     },
     features: {
       title: 'What it does',
@@ -148,6 +150,8 @@ export const translations = {
       title: 'Canlı gör',
       subtitle: 'Takip panelinin kısa bir önizlemesi — denemek için canlı demoyu açın.',
       demoCta: 'Canlı demoyu aç',
+      detailsTitle: 'Ürün detayı',
+      detailsSubtitle: 'Fiyat geçmişi, uyarılar ve ürün durumu tek bakışta.',
     },
     features: {
       title: 'Ne yapar',

@@ -47,7 +47,12 @@ export function Hero() {
             <GitHubIcon />
             {t.hero.ctaPrimary}
           </a>
-          <a className="btn btn--ghost" href={config.demoUrl}>
+          <a
+            className="btn btn--ghost"
+            href={config.demoUrl}
+            target="_blank"
+            rel="noreferrer"
+          >
             {t.hero.ctaSecondary}
           </a>
         </div>

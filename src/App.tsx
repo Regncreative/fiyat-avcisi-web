@@ -8,6 +8,7 @@ import { Stack } from './components/Stack'
 import { FAQ } from './components/FAQ'
 import { Footer } from './components/Footer'
 import './styles/global.css'
+import './styles/demo.css'
 
 export default function App() {
   return (
