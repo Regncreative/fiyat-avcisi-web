@@ -13,7 +13,7 @@ export const translations = {
       why: 'Why',
       faq: 'FAQ',
       github: 'GitHub',
-      cta: 'View on GitHub',
+      cta: 'Live Demo',
     },
     hero: {
       brand: 'Fiyat Avcısı',
@@ -129,7 +129,7 @@ export const translations = {
       why: 'Neden',
       faq: 'SSS',
       github: 'GitHub',
-      cta: 'GitHub’da Gör',
+      cta: 'Canlı Demo',
     },
     hero: {
       brand: 'Fiyat Avcısı',

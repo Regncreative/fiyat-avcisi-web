@@ -58,7 +58,7 @@ export function Navbar() {
 
           <a
             className="btn btn--primary btn--sm"
-            href={config.githubUrl}
+            href={config.demoUrl}
             target="_blank"
             rel="noreferrer"
           >
