@@ -24,15 +24,28 @@ export function Demo() {
             width={56}
             height={56}
           />
-          <p>{t.demo.placeholder}</p>
-          <a
-            className="btn btn--primary btn--sm"
-            href={config.githubUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t.demo.githubCta}
-          </a>
+          <p>
+            <span className="demo-frame__dot" aria-hidden />
+            {t.demo.placeholder}
+          </p>
+          <div className="demo-frame__ctas">
+            <a
+              className="btn btn--primary btn--sm"
+              href={config.demoUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.demo.demoCta}
+            </a>
+            <a
+              className="btn btn--ghost btn--sm"
+              href={config.githubUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.demo.githubCta}
+            </a>
+          </div>
         </div>
       </div>
     </section>

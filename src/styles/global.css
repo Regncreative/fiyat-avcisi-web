@@ -448,6 +448,40 @@ p {
   opacity: 0.9;
 }
 
+.demo-frame__body p {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.demo-frame__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+.demo-frame__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+@keyframes livePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.05);
+  }
+}
+
 /* —— Features —— */
 .feature-list {
   display: grid;

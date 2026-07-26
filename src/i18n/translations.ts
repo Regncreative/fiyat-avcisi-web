@@ -31,10 +31,11 @@ export const translations = {
       queue: 'BullMQ · Redis',
     },
     demo: {
-      title: 'See the idea',
+      title: 'See it live',
       subtitle:
-        'Live demo is a placeholder for now. Clone the monorepo to run the full panel locally.',
-      placeholder: 'Demo coming soon',
+        'The live demo panel is up. Open it, or clone the monorepo to run everything locally.',
+      placeholder: 'Live demo is ready',
+      demoCta: 'Open live demo',
       githubCta: 'Open the monorepo',
     },
     features: {
@@ -147,10 +148,11 @@ export const translations = {
       queue: 'BullMQ · Redis',
     },
     demo: {
-      title: 'Fikri gör',
+      title: 'Canlı gör',
       subtitle:
-        'Canlı demo şimdilik yer tutucu. Tam paneli yerelde çalıştırmak için monorepoyu klonlayın.',
-      placeholder: 'Demo yakında',
+        'Canlı demo paneli yayında. Hemen açın ya da her şeyi yerelde çalıştırmak için monorepoyu klonlayın.',
+      placeholder: 'Canlı demo hazır',
+      demoCta: 'Canlı demoyu aç',
       githubCta: 'Monorepoyu aç',
     },
     features: {
