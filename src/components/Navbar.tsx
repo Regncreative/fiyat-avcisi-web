@@ -32,9 +32,7 @@ export function Navbar() {
               onClick={() => setLocale('en')}
               aria-pressed={locale === 'en'}
             >
-              <span className="lang-toggle__flag" aria-hidden>
-                🇬🇧
-              </span>
+              <FlagUK />
               EN
             </button>
             <button
@@ -43,9 +41,7 @@ export function Navbar() {
               onClick={() => setLocale('tr')}
               aria-pressed={locale === 'tr'}
             >
-              <span className="lang-toggle__flag" aria-hidden>
-                🇹🇷
-              </span>
+              <FlagTR />
               TR
             </button>
           </div>
@@ -71,6 +67,44 @@ export function Navbar() {
         </div>
       </div>
     </header>
+  )
+}
+
+function FlagUK() {
+  return (
+    <svg
+      className="lang-toggle__flag"
+      width="16"
+      height="12"
+      viewBox="0 0 60 40"
+      aria-hidden
+    >
+      <rect width="60" height="40" fill="#012169" />
+      <path d="M0 0l60 40M60 0L0 40" stroke="#fff" strokeWidth="8" />
+      <path d="M0 0l60 40M60 0L0 40" stroke="#C8102E" strokeWidth="5" />
+      <path d="M30 0v40M0 20h60" stroke="#fff" strokeWidth="13" />
+      <path d="M30 0v40M0 20h60" stroke="#C8102E" strokeWidth="7" />
+    </svg>
+  )
+}
+
+function FlagTR() {
+  return (
+    <svg
+      className="lang-toggle__flag"
+      width="16"
+      height="12"
+      viewBox="0 0 60 40"
+      aria-hidden
+    >
+      <rect width="60" height="40" fill="#E30A17" />
+      <circle cx="25" cy="20" r="10" fill="#fff" />
+      <circle cx="28.5" cy="20" r="8" fill="#E30A17" />
+      <polygon
+        fill="#fff"
+        points="38,20 34.9,21.1 35.7,17.8 33.2,15.7 36.6,15.5 38,12.4 39.4,15.5 42.8,15.7 40.3,17.8 41.1,21.1"
+      />
+    </svg>
   )
 }
 
