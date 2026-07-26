@@ -1,14 +1,23 @@
 import { useLocale } from '../i18n/LocaleContext'
 import { config } from '../config'
 
-const DASH_ROWS = [
+type DashRow = {
+  name: string
+  store: string
+  price: string
+  change: string
+  down: boolean
+  image: string
+}
+
+const DASH_ROWS: DashRow[] = [
   {
     name: 'Sony WH-1000XM5 Kablosuz Kulaklık',
     store: 'trendyol.com',
     price: '12.499 TL',
     change: '−3.9%',
     down: true,
-    hue: '#94a3b8',
+    image: 'https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?w=160&h=160&fit=crop',
   },
   {
     name: 'Samsung Galaxy Watch6 44mm',
@@ -16,7 +25,7 @@ const DASH_ROWS = [
     price: '7.499 TL',
     change: '−4.5%',
     down: true,
-    hue: '#64748b',
+    image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=160&h=160&fit=crop',
   },
   {
     name: 'Dyson V15 Detect Absolute',
@@ -24,7 +33,47 @@ const DASH_ROWS = [
     price: '28.999 TL',
     change: '+3.6%',
     down: false,
-    hue: '#78716c',
+    image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=160&h=160&fit=crop',
+  },
+  {
+    name: 'Amazon Kindle Paperwhite 16GB',
+    store: 'amazon.com.tr',
+    price: '4.499 TL',
+    change: '−4.3%',
+    down: true,
+    image: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=160&h=160&fit=crop',
+  },
+  {
+    name: 'Nike Air Zoom Pegasus 41',
+    store: 'trendyol.com',
+    price: '4.299 TL',
+    change: '−3.4%',
+    down: true,
+    image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=160&h=160&fit=crop',
+  },
+  {
+    name: 'Logitech MX Master 3S',
+    store: 'amazon.com.tr',
+    price: '3.899 TL',
+    change: '+5.4%',
+    down: false,
+    image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=160&h=160&fit=crop',
+  },
+  {
+    name: 'Apple AirPods Pro (2. Nesil)',
+    store: 'n11.com',
+    price: '8.999 TL',
+    change: '−10.0%',
+    down: true,
+    image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=160&h=160&fit=crop',
+  },
+  {
+    name: 'LG OLED55C3 55" 4K Smart TV',
+    store: 'hepsiburada.com',
+    price: '42.999 TL',
+    change: '−12.2%',
+    down: true,
+    image: 'https://images.unsplash.com/photo-1593359677879-a4b92e8b6170?w=160&h=160&fit=crop',
   },
 ]
 
@@ -36,6 +85,7 @@ const DETAILS = [
     delta: '−₺1.000,00 (10.0%)',
     down: true,
     status: 'paused' as const,
+    image: 'https://images.unsplash.com/photo-1600294037681-c80b4cb5b434?w=240&h=240&fit=crop',
     chart: 'M8 18 C70 22 110 70 160 95 C210 118 250 130 292 142',
     fill: 'M8 18 C70 22 110 70 160 95 C210 118 250 130 292 142 L292 160 L8 160 Z',
   },
@@ -46,6 +96,7 @@ const DETAILS = [
     delta: '+₺400,00 (11.4%)',
     down: false,
     status: 'active' as const,
+    image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=240&h=240&fit=crop',
     chart: 'M8 142 C60 130 110 118 160 100 C210 80 250 45 292 22',
     fill: 'M8 142 C60 130 110 118 160 100 C210 80 250 45 292 22 L292 160 L8 160 Z',
   },
@@ -56,10 +107,27 @@ const DETAILS = [
     delta: '−₺1.500,00 (16.7%)',
     down: true,
     status: 'active' as const,
+    image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?w=240&h=240&fit=crop',
     chart: 'M8 18 C55 35 95 55 140 85 C185 112 235 125 292 148',
     fill: 'M8 18 C55 35 95 55 140 85 C185 112 235 125 292 148 L292 160 L8 160 Z',
   },
 ]
+
+function formatRows(rows: DashRow[], keyPrefix: string) {
+  return rows.map((row) => (
+    <li key={`${keyPrefix}-${row.name}`} className="dash-row">
+      <img className="dash-row__thumb" src={row.image} alt="" width={34} height={34} loading="lazy" />
+      <div className="dash-row__meta">
+        <strong>{row.name}</strong>
+        <span>{row.store}</span>
+      </div>
+      <div className="dash-row__price">
+        <strong>{row.price}</strong>
+        <span className={row.down ? 'is-down' : 'is-up'}>{row.change}</span>
+      </div>
+    </li>
+  ))
+}
 
 export function Demo() {
   const { t, locale } = useLocale()
@@ -126,9 +194,7 @@ export function Demo() {
             <div className="dash__kpis">
               <div className="dash-kpi dash-kpi--slate">
                 <span>{tr ? 'Toplam Ürün' : 'Total'}</span>
-                <strong className="dash-kpi__num" data-n="8">
-                  8
-                </strong>
+                <strong className="dash-kpi__num">8</strong>
               </div>
               <div className="dash-kpi dash-kpi--emerald">
                 <span>{tr ? 'Aktif Takip' : 'Active'}</span>
@@ -166,31 +232,13 @@ export function Demo() {
                 <strong>{tr ? 'Son Fiyat Değişimleri' : 'Recent price changes'}</strong>
                 <span>{tr ? 'Son güncellenen fiyatlar' : 'Latest updates'}</span>
               </div>
-              <ul>
-                {DASH_ROWS.map((row, i) => (
-                  <li
-                    key={row.name}
-                    className="dash-row"
-                    style={{ ['--i' as string]: String(i) }}
-                  >
-                    <span
-                      className="dash-row__thumb"
-                      style={{ background: `linear-gradient(145deg, ${row.hue}, #e2e8f0)` }}
-                    />
-                    <div className="dash-row__meta">
-                      <strong>{row.name}</strong>
-                      <span>{row.store}</span>
-                    </div>
-                    <div className="dash-row__price">
-                      <strong>{row.price}</strong>
-                      <span className={row.down ? 'is-down' : 'is-up'}>{row.change}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <div className="dash__marquee">
+                <ul className="dash__marquee-track">
+                  {formatRows(DASH_ROWS, 'a')}
+                  {formatRows(DASH_ROWS, 'b')}
+                </ul>
+              </div>
             </div>
-
-            <div className="dash__cursor" />
           </div>
         </div>
 
@@ -221,13 +269,13 @@ export function Demo() {
               </header>
 
               <div className="detail-card__body">
-                <div
+                <img
                   className="detail-card__photo"
-                  style={{
-                    background: `linear-gradient(145deg, ${
-                      i === 0 ? '#e2e8f0' : i === 1 ? '#cbd5e1' : '#94a3b8'
-                    }, #f8fafc)`,
-                  }}
+                  src={item.image}
+                  alt=""
+                  width={72}
+                  height={72}
+                  loading="lazy"
                 />
                 <div className="detail-card__info">
                   <span
@@ -267,7 +315,13 @@ export function Demo() {
                     strokeWidth="3"
                     strokeLinecap="round"
                   />
-                  <circle className="detail-card__dot" cx="292" cy={item.down ? 148 : 22} r="5" fill="#0891b2" />
+                  <circle
+                    className="detail-card__dot"
+                    cx="292"
+                    cy={item.down ? 148 : 22}
+                    r="5"
+                    fill="#0891b2"
+                  />
                 </svg>
               </div>
             </article>
