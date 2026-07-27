@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/react'
 import { LocaleProvider } from './i18n/LocaleContext'
 import { Navbar } from './components/Navbar'
 import { Hero } from './components/Hero'
@@ -23,6 +24,7 @@ export default function App() {
         <FAQ />
       </main>
       <Footer />
+      <Analytics />
     </LocaleProvider>
   )
 }
